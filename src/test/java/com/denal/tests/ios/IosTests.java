@@ -23,7 +23,7 @@ public class IosTests extends TestBase {
             $(id("Text Button")).click()
         );
 
-        step("Check output text", () ->
+        step("Check header for input text", () ->
             assertEquals("Waiting for text input.", $(id("Text Output")).getText())
         );
 
