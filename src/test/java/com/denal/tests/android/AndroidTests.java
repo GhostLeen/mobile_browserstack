@@ -1,6 +1,5 @@
 package com.denal.tests.android;
 
-import com.codeborne.selenide.Condition;
 import com.denal.tests.TestBase;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,7 @@ import static org.openqa.selenium.By.id;
 public class AndroidTests extends TestBase {
 
     @Test
-    //Пример с урока
+        //Пример с урока
     void searchBrowserstackTest() {
         step("Type search", () -> {
             $(accessibilityId("Search Wikipedia")).click();

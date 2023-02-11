@@ -20,11 +20,11 @@ public class IosTests extends TestBase {
         String inputText = "IOS test";
 
         step("Click 'Text' Button", () ->
-            $(id("Text Button")).click()
+                $(id("Text Button")).click()
         );
 
         step("Check header for input text", () ->
-            assertEquals("Waiting for text input.", $(id("Text Output")).getText())
+                assertEquals("Waiting for text input.", $(id("Text Output")).getText())
         );
 
         step(format("Enter value %s in the input field and press enter", inputText), () -> {
@@ -34,7 +34,7 @@ public class IosTests extends TestBase {
         });
 
         step("Check if output text equals to text from previous step", () ->
-            assertEquals(inputText, $(id("Text Output")).getText())
+                assertEquals(inputText, $(id("Text Output")).getText())
         );
     }
 }

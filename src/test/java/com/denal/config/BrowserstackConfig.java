@@ -2,7 +2,6 @@ package com.denal.config;
 
 import org.aeonbits.owner.Config;
 
-
 @BrowserstackConfig.LoadPolicy(BrowserstackConfig.LoadType.MERGE)
 @org.aeonbits.owner.Config.Sources(
         {"system:properties",
