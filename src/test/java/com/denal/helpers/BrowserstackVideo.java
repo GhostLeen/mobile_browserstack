@@ -1,6 +1,6 @@
 package com.denal.helpers;
 
-import com.denal.config.BrowserstackConfig;
+import com.denal.config.Config;
 import org.aeonbits.owner.ConfigFactory;
 
 import static com.denal.helpers.CustomApiListener.withCustomTemplates;
@@ -9,7 +9,7 @@ import static java.lang.String.format;
 
 public class BrowserstackVideo {
     public static String getVideoUrl(String sessionId) {
-        BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class);
+        Config config = ConfigFactory.create(Config.class);
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()

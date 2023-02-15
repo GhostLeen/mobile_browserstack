@@ -33,8 +33,10 @@ dependencies {
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "com.github.javafaker:javafaker:1.0.2",
             "org.aeonbits.owner:owner-java8:1.0.12",
+            "commons-io:commons-io:2.11.0",
             "org.junit.jupiter:junit-jupiter:5.9.2",
-            "org.slf4j:slf4j-simple:1.7.32"
+            "org.slf4j:slf4j-simple:2.0.6",
+            'io.github.bonigarcia:webdrivermanager:5.3.2'
     )
 }
 

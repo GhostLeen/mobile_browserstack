@@ -2,7 +2,8 @@ package com.denal.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import com.denal.driver.BrowserstackDriver;
+import com.denal.drivers.BrowserstackDriver;
+import com.denal.drivers.MobileDriver;
 import com.denal.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -14,7 +15,18 @@ import static com.codeborne.selenide.Selenide.*;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = BrowserstackDriver.class.getName();
+        switch (System.getProperty("env")) {
+            case "android":
+            case "ios":
+                Configuration.browser = BrowserstackDriver.class.getName();
+                break;
+            case "local":
+                Configuration.browser = MobileDriver.class.getName();
+                break;
+        }
+
+        Configuration.timeout = 15000;
+        Configuration.pageLoadTimeout = 15000;
         Configuration.browserSize = null;
     }
 
@@ -28,8 +40,13 @@ public class TestBase {
     void addAttachments() {
         String sessionId = sessionId().toString();
 
+        if (System.getProperty("env").equals("local")) {
+            Attach.screenshotAs("Last screenshot");
+        }
         Attach.pageSource();
         closeWebDriver();
-        Attach.addVideo(sessionId);
+        if (!System.getProperty("env").equals("local")) {
+            Attach.addVideo(sessionId);
+        }
     }
 }
